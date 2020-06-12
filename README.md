@@ -1,10 +1,26 @@
-# CPPND: Capstone Hello World Repo
+# CPPND: Capstone : Multithreaded Webcrawler to fetch Pokemon Informations
 
 This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+I always wanted code webcrawler, so I decided to code webcrawler for capstone project. I got the fetching pokemons idea from this video:
+https://youtu.be/swrjBDQTv6c
 
-In this project, you can build your own C++ application starting with this repo, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+Project fetches pokemon informations (name, weight, height and decription) from website (https://www.pokemon.com/) and write it to file (pokemons.txt). Program is fetching and processing websites using multithreads.
+
+## Rubric Points
+
+- Loops, Functions, I/O
+- Object Oriented (except inheritance, I did not need inheritance)
+- Memory Management (but I did not implement rule of three or five, I didn't need it)
+- Concurrency
+
+## Important
+
+Program takes 2 argument variable; first one is number of threads, number of pokemons to be fetched.
+
+For example, you call program like this "./fetch_pokemons 8 40", It will use 8 thread and fetches informations of chosen 40 pokemons. (Actually, there is no implementation about randomization, it comes from the nature of concurrency)
+
+ - I strongly suggest you to limit number of pokemons to be fetched (40 is okay), otherwise it will take pretty much time to fetch all pokemons.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -23,4 +39,5 @@ In this project, you can build your own C++ application starting with this repo,
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./HelloWorld`.
+4. Run it: `./fetch_pokemons`.
+  - command line arguments `./fetch_pokemons [int:number of threads] [int:number of pokemons to be fetched]`
