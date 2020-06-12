@@ -9,7 +9,7 @@
 class TextProcessor{
     public:
     static void ProcessText(
-        const std::string &text, Pokemon &pokemon, MessageQueue &message_queue); //TODO take queue and pokemon array
+        MessageQueue &message_queue, Pokemon &pokemon, const std::string &text);
     private:
     TextProcessor();
     static std::string extractDataFromLine(std::string &line);

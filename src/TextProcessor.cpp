@@ -9,10 +9,10 @@
 
 
 void TextProcessor::ProcessText(
-        const std::string &text, Pokemon &pokemon, MessageQueue &message_queue){
+        MessageQueue &message_queue, Pokemon &pokemon, const std::string &text){
     std::istringstream string_stream(text);
     std::string line; 
-    std::cout<<"********PROCESSING HAS STARTED**********\n";
+    
     // find ref to previous pokemon
     while(std::getline(string_stream, line)){
         if(line.find("class=\"previous\"") != std::string::npos){
@@ -75,8 +75,7 @@ void TextProcessor::ProcessText(
             break;
         }
     }
-    std::cout<<pokemon.name<<" \n"<<pokemon.height<<" \n"<<pokemon.weight<<std::endl;
-    std::cout<<pokemon.description;
+    message_queue.decrease_processing_message_num();
 }
 
 std::string TextProcessor::extractPokemonRefFromLine(std::string &line){

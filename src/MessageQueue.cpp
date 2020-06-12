@@ -10,12 +10,13 @@ void MessageQueue::send(std::string &&msg)
 }
 
 std::string MessageQueue::receive()
-{
+{   
     std::unique_lock<std::mutex> uLock(_queue_mutex);
     _cond.wait(uLock, [this](){
         return !_queue.empty() || is_done();
     });
-    // TODO throw exception
+    if(is_done())
+        throw "Processing ended";
     std::string msg = std::move(_queue.back());
     increase_processing_message_num();
     _queue.pop_back();
@@ -36,5 +37,5 @@ void MessageQueue::decrease_processing_message_num(){
 }
 
 bool MessageQueue::is_done(){
-    return _message_set.empty() && _processing_message_number == 0;
+    return _queue.empty() && _processing_message_number == 0;
 }
