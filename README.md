@@ -33,6 +33,7 @@ For example, you call program like this "./fetch_pokemons 8 40", It will use 8 t
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
+* libcurl (c++ library, package name is 'libcurl-devel' in linux) >= 7.66.0
 
 ## Basic Build Instructions
 
