@@ -12,4 +12,4 @@ file(GLOB project_SRCS src/*.cpp) #src/*.h
 
 # Add project executable
 add_executable(HelloWorld ${project_SRCS})
-target_link_libraries(HelloWorld -lcurl)
+target_link_libraries(HelloWorld -lpthread -lcurl)

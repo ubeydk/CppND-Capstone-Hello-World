@@ -20,7 +20,7 @@ std::mutex vector_mutex;
 std::vector<Pokemon> pokemons;
 
 MessageQueue message_queue;
-std::atomic<int> counter = 0;
+std::atomic<int> counter;
 int limit = INT_MAX;
 
 void fetch_and_process_pages(){
@@ -53,6 +53,7 @@ std::string stringify_pokemon(Pokemon &pokemon){
 
 int main(int argc, char **argv) {
     curl_global_init(CURL_GLOBAL_DEFAULT);
+    counter = 0;
 
     std::string initial_pokemon_name = "vaporeon";
     message_queue.send(std::move(initial_pokemon_name));
