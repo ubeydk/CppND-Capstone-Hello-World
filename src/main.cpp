@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
     std::vector<std::thread> threads;
     
     auto start = std::chrono::high_resolution_clock::now();
-    for(int i = 0; i < DEFAULT_NUMBER_OF_THREADS; i++)
+    for(int i = 0; i < number_of_threads; i++)
         threads.emplace_back(std::thread(fetch_and_process_pages));
     for(auto &thread:threads)
         thread.join();
