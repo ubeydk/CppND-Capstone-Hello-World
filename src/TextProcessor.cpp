@@ -9,7 +9,7 @@
 
 
 void TextProcessor::ProcessText(
-        MessageQueue &message_queue, Pokemon &pokemon, const std::string &text){
+        MessageQueue<std::string> &message_queue, Pokemon &pokemon, const std::string &text){
     std::istringstream string_stream(text);
     std::string line; 
     
@@ -29,7 +29,6 @@ void TextProcessor::ProcessText(
         }
     }
     // get descriptions
-    /////
     while(std::getline(string_stream, line)){
         if(line.find("version-x") != std::string::npos){
             std::getline(string_stream, line);
@@ -58,7 +57,6 @@ void TextProcessor::ProcessText(
             break;
         }
     }
-    /////
 
     while(std::getline(string_stream, line)){
         if(line.find("Height") != std::string::npos){

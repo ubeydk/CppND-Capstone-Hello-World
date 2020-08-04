@@ -5,9 +5,9 @@
 #include <curl/curl.h>
 
 class PageFetcher{
-    public:
+public:
     std::string FetchPage(std::string &url);
-    private:
+private:
     static size_t writeCallback(char *buf, size_t size, size_t nmemb, void *up);
     CURL *_curl;
     std::string _read_buffer;

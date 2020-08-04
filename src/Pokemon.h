@@ -6,7 +6,7 @@
 #include <vector>
 
 class Pokemon{
-    public:
+public:
     Pokemon(const std::string&);
     std::string name;
     std::string height;
